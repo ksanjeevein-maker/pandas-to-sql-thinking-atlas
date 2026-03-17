@@ -1,36 +1,39 @@
 # Pandas to SQL Thinking Atlas
 
-A reference pack for analysts and engineers moving from dataframe-first thinking into SQL. It focuses on joins, grouping, windows, null semantics, CTEs, and when to push work into the database instead of Python.
+A reference pack for analysts and engineers moving from dataframe-first thinking into SQL.
 
-The real migration is not from one syntax to another. It is from row objects in memory to declarative set-based reasoning with explicit database costs.
+The value is in making the move from mutable in-memory steps to set-based query reasoning with explicit joins, windows, and staged CTE logic.
 
-## Best use
+## What makes this repo more useful now
 
-- training analysts who know pandas but need stronger SQL instincts
-- rewriting dataframe-heavy reporting logic into database queries
-- reviewing pipelines where Python is doing work the warehouse should own
-- teaching joins, group-bys, and window functions through familiar pandas examples
+- A stronger learning path for self-study and onboarding
+- A worked example that shows the migration or debugging move end to end
+- A mental-model diagram for fast orientation
+- A review checklist for code review or design review
+- Portable agent files for Codex, Copilot, Cursor, and Antigravity
 
-## Core topics
+## Learning path
 
-- set-based thinking instead of in-memory row iteration
-- groupby to `GROUP BY` and aggregate functions
-- merge to `JOIN` patterns
-- window functions for ranking and cumulative logic
-- CTEs, null semantics, and pushing work to the database
+- Start with filtering, projection, and set-based thinking.
+- Then move into `GROUP BY`, aggregates, and why row-level intuition breaks there.
+- Learn joins and cardinality before building bigger reporting queries.
+- Finish with window functions and CTEs for multi-step analytical logic.
 
-## Questions this pack should answer well
+## High-signal traps
 
-- What is the SQL equivalent of a pandas `groupby().agg()` chain?
-- How should I translate `merge` and post-merge filtering?
-- What does a pandas rolling or ranking operation look like in SQL?
-- When should I use a CTE instead of another intermediate dataframe?
+- Thinking in row loops instead of set operations.
+- Forgetting that `NULL` rules differ from pandas null intuition.
+- Using CTEs as a dumping ground instead of a readability tool.
+- Ignoring join cardinality and then blaming duplicates on SQL itself.
 
-## When not to use this pack
+## Read this next
 
-- database tuning at the index and query-plan level
-- vendor-specific SQL dialect edge cases beyond common patterns
-- streaming SQL systems and real-time materialization strategies
+- Main portable guide: `AGENTS.md`
+- Decision guide: `docs/decision-guide.md`
+- Worked example: `examples/worked-example.md`
+- Mental-model diagram: `docs/mental-model-map.md`
+- Review checklist: `docs/review-checklist.md`
+- Official references: `official-references.md`
 
 ## Agent formats
 
@@ -40,9 +43,3 @@ The real migration is not from one syntax to another. It is from row objects in 
 - Cursor rule: `.cursor/rules/pandas-sql-thinking-atlas.mdc`
 - Antigravity-style rule: `.agent/rules/pandas-sql-thinking-atlas.md`
 - Antigravity-style skill: `.agent/skills/pandas-sql-thinking-atlas/`
-
-## Source policy
-
-- Prefer official framework and library docs first.
-- Prefer official GitHub org repos second.
-- Re-check official docs when framework behavior may have changed.

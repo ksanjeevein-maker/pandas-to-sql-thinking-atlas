@@ -1,46 +1,37 @@
 # Pandas to SQL Thinking Atlas Codex and Agent Guide
 
-Use this repository when a task involves:
-
-- training analysts who know pandas but need stronger SQL instincts
-- rewriting dataframe-heavy reporting logic into database queries
-- reviewing pipelines where Python is doing work the warehouse should own
-- teaching joins, group-bys, and window functions through familiar pandas examples
+Use this repository when you need a higher-signal explanation, migration pattern, or review aid for this topic.
 
 ## Preferred workflow
 
-1. Identify the source habit, framework concept, or failure mode first.
-2. Translate the mental model before jumping to code.
-3. Use the local skill references instead of inventing mappings from memory.
-4. Prefer native target-platform patterns over transliteration.
-5. Add official links when the user wants citations or deeper study.
+1. Read `docs/decision-guide.md` when the user needs a migration path, tradeoff call, or phased plan.
+2. Read `docs/mental-model-map.md` when the user needs the big picture first.
+3. Read `examples/worked-example.md` when the user would benefit from an end-to-end example.
+4. Read `docs/review-checklist.md` when reviewing a migration, implementation, or design.
+5. Read `official-references.md` when the user wants citations or deeper study.
+6. Use the repo-local skill folders when the agent environment supports them.
 
 ## Primary local references
 
-- Skill entrypoint: `.github/skills/pandas-sql-thinking-atlas/SKILL.md`
-- Antigravity-style skill entrypoint: `.agent/skills/pandas-sql-thinking-atlas/SKILL.md`
-- Concept mappings: `.github/skills/pandas-sql-thinking-atlas/references/concepts.md`
-- Rewrite patterns: `.github/skills/pandas-sql-thinking-atlas/references/patterns.md`
-- Official links: `.github/skills/pandas-sql-thinking-atlas/references/official-links.md`
-- Human reference pack: `official-references.md`
+- Decision guide: `docs/decision-guide.md`
+- Worked example: `examples/worked-example.md`
+- Mental-model diagram: `docs/mental-model-map.md`
+- Review checklist: `docs/review-checklist.md`
+- Official reference pack: `official-references.md`
+- Copilot skill entrypoint: `.github/skills/pandas-sql-thinking-atlas/SKILL.md`
+- Antigravity skill entrypoint: `.agent/skills/pandas-sql-thinking-atlas/SKILL.md`
 
 ## Output shape
 
-- Start with the target-side equivalent in one sentence.
+- Start with the target-side or corrected approach in one sentence.
 - Explain the mental shift in plain language.
-- Show a concise mapping, pattern, or checklist.
-- Call out 1-3 practical watchouts.
+- Use the worked example or checklist when it sharpens the answer.
+- Call out the biggest traps explicitly.
 - Add official links only when useful.
 
 ## Guardrails
 
-- Prefer set-based operations over row-by-row Python thinking.
-- Keep null semantics explicit.
-- Use CTEs to make multi-step query logic readable, not to imitate dataframe sprawl.
-- Move work into SQL when the database can do it cheaper and closer to the data.
-
-## Source preference
-
-1. Official docs
-2. Official organization repos
-3. Local reference files in this repository
+- Thinking in row loops instead of set operations.
+- Forgetting that `NULL` rules differ from pandas null intuition.
+- Using CTEs as a dumping ground instead of a readability tool.
+- Ignoring join cardinality and then blaming duplicates on SQL itself.
